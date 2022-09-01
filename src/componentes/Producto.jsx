@@ -1,6 +1,10 @@
 import React from 'react'
 import ItemCount from './ItemCount'
-const Producto = ({ titulo, descripcion, imagen, stock }) => {
+const Producto = ({ data }) => {
+
+    const {titulo, descripcion, imagen, stock} = data
+
+
     return (
 
         <div className="col-sm-3">
