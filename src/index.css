@@ -1,0 +1,9 @@
+.carta-producto img {
+    height: 270px;
+    object-fit: cover;
+}
+
+.carta-producto{
+    max-width: 375px;
+    max-height: 545px;
+}

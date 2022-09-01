@@ -4,13 +4,15 @@ const listaproductos = [
         titulo:"Bombones personalizados",
         descripcion:"Personalizamos cualquier mensaje que quieras dedicar",
         imagen:"https://http2.mlstatic.com/D_NQ_NP_959001-MLA43794902606_102020-O.webp",
+        precio: 1500,
         stock:3,
+        categoria: 'bombones'
     },
     {
         id: '2',
         titulo:"Tableta",
         descripcion:"Elaborada con el chocolate que se ajuste a tu paladar",
-        imagen:"https://s1.eestatic.com/2018/11/07/actualidad/actualidad_351478872_104884997_1706x960.jpg",
+        imagen:"https://viajes.nationalgeographic.com.es/medio/2021/04/14/24-onzas-chocolate-de-diseno_88fb8054_1024x1024.jpg",
         stock: 6,
         precio: 950,
         categoria: 'Tabletas'
