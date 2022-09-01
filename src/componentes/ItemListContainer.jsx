@@ -1,20 +1,44 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import Producto from './Producto'
+import listaproductos from '../Utils/listaproductos'
+
 const ListadoProductos = () => {
+
+    const [productos, guardarProductos] = useState([])
+
+    useEffect(() => {
+        obtenerProductos()
+    }, [productos])
+
+    const productosPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(listaproductos);
+            
+        },2000);
+    })
+
+    const obtenerProductos = async () => {
+        try {
+            const respuesta = await productosPromise
+            guardarProductos(respuesta)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='row mt-4'>
-            <Producto
-                titulo="Tableta"
-                descripcion="Elaborada con el chocolate que se ajuste a tu paladar"
-                imagen="https://s1.eestatic.com/2018/11/07/actualidad/actualidad_351478872_104884997_1706x960.jpg"
-                stock={6}
-            />
-            <Producto
-                titulo="Bombones personalizados"
-                descripcion="Personalizamos cualquier mensaje que quieras dedicar"
-                imagen="https://http2.mlstatic.com/D_NQ_NP_959001-MLA43794902606_102020-O.webp"
-                stock={3}
-            />
+            {
+                productos.map(item => {
+                    return (
+                        <Producto
+                        key={item.id}
+                        data={item}   
+                        />
+
+                    )
+                })
+            }
         </div>
     )
 }
