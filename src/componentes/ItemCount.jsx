@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({ stock, initial, submitComprar }) => {
 
-    const [contador, modificarContador] = useState (1)
+    //recibe initial como 1 el cual es pasado como parametro inicial en el usestate.
+
+
+    const [contador, modificarContador] = useState(initial)
 
     const disminuirProducto = () => {
-        if (contador >=1) {
+        if (contador >= 1) {
             modificarContador(contador - 1)
         }
     }
@@ -16,7 +19,7 @@ const ItemCount = ({stock}) => {
     }
 
     return (
-        <div>
+        <div className='mt-auto'>
             <div className='col-auto'>
                 <div className="input-group mb-3 text-center">
                     <button className="btn btn-outline-secondary" type="button" onClick={disminuirProducto}>-</button>
@@ -24,6 +27,9 @@ const ItemCount = ({stock}) => {
                     <button className="btn btn-outline-secondary" type="button" onClick={aumentarProducto}>+</button>
                 </div>
 
+            </div>
+            <div className="">
+                <a className="btn btn-primary w-100" onClick={() => submitComprar(contador)}>Añadir al carrito</a>
             </div>
 
         </div>

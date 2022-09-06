@@ -1,9 +1,14 @@
 .carta-producto img {
-    height: 270px;
+    height: 200px;
     object-fit: cover;
 }
 
-.carta-producto{
-    max-width: 375px;
-    max-height: 545px;
+hr {
+    color: #FFF !important;
+}
+
+footer {
+    position: relative;
+    bottom: 0 !important;
+    width: 100%;
 }

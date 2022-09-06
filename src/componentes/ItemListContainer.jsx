@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Producto from './Producto'
 import listaproductos from '../Utils/listaproductos'
 
@@ -13,8 +13,8 @@ const ListadoProductos = () => {
     const productosPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(listaproductos);
-            
-        },2000);
+
+        }, 2000);
     })
 
     const obtenerProductos = async () => {
@@ -27,18 +27,21 @@ const ListadoProductos = () => {
     }
 
     return (
-        <div className='row mt-4'>
-            {
-                productos.map(item => {
-                    return (
-                        <Producto
-                        key={item.id}
-                        data={item}   
-                        />
+        <div className="container min-vh-100">
+            <div className='row mt-4'>
+                {
+                    productos.map(item => {
+                        return (
+                            <Producto
+                                key={item.id}
+                                data={item}
+                            />
 
-                    )
-                })
-            }
+                        )
+                    })
+                }
+
+            </div>
         </div>
     )
 }
