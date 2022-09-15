@@ -16,3 +16,61 @@ footer {
     bottom: 0 !important;
     width: 100%;
 }
+
+.portada-principal {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("../src/img/portada-principal.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.medio{
+    height: 80vh;
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.medio h1{
+   font-size: 60px;
+   font-family: 'Poppins', sans-serif;
+}
+
+.color-texto{
+    color: #f0b30f;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0px;
+}
+
+.portada-error {
+    /* height: 800px; */
+    background: url('../src/img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: '', sans-serif;
+    Color: #fff
+}
+
+.titulo-error {
+    text-align: center;
+    font-size: 1000%;
+    font-weight: bold
+}
+
+.parrafo-error {
+    text-align: center;
+    font-size: 100%;
+    bottom: 200px;
+}
+
+.titulo2-error {
+    font-size: 40px;
+    padding: 20px;
+    font-weight: bold
+}

@@ -15,7 +15,7 @@ const listaproductos = [
         imagen:"https://viajes.nationalgeographic.com.es/medio/2021/04/14/24-onzas-chocolate-de-diseno_88fb8054_1024x1024.jpg",
         stock: 6,
         precio: 950,
-        categoria: 'Tabletas'
+        categoria: 'tabletas'
     },
     {
         id: '3',
@@ -24,7 +24,7 @@ const listaproductos = [
         imagen: 'https://todosobrefrutas.com/wp-content/uploads/2021/05/Chocolates-rellenos-de-cereza.jpg',
         stock: 8,
         precio: 1900,
-        categoria: 'Bombones'
+        categoria: 'bombones'
     },
     {
         id: '4',
@@ -33,8 +33,27 @@ const listaproductos = [
         imagen: 'https://st.depositphotos.com/1006075/4314/i/600/depositphotos_43149551-stock-photo-lolllipop.jpg',
         stock: 6,
         precio: 150,
-        categoria: 'Chupetines'
+        categoria: 'chupetines'
     },
+    {
+        id:6,
+        titulo: "Alfajor de dulce de leche ",
+        descripcion: "Descripcion del producto",
+        imagen: "https://scm-assets.constant.co/scm/unilever/2bb5223be0548fcc55c230aa5f951219/50d26c1a-bffc-4e86-a67e-a516d58c93ac.jpg",
+        stock: 10,
+        categoria:'alfajores',
+        precio: 350
+
+    }, 
+    {
+        id:7,
+        titulo: "Alfajor de maicena",
+        descripcion: "Descripcion del producto",
+        imagen: "https://lasrecetasdelchef.net/wp-content/uploads/2018/12/alfajores-de-maicena.jpg",
+        stock: 11,
+        categoria:'alfajores',
+        precio: 250
+    }
 
 ];
 

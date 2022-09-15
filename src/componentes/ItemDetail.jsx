@@ -24,7 +24,7 @@ const ItemDetail = ({ data }) => {
                         <p className="card-text mt-2 mb-2 fst-italic text-light">{data.descripcion}</p>
                         <p className='text-light'><FontAwesomeIcon icon={faTruckFast} /> Envios desde $250</p>
                         <h5 className="text-light mb-2">$ {data.precio}</h5>
-                        <ItemCount guardarCantidadSeleccionada={guardarCantidadSeleccionada} stock={stock} productosData={data} />
+                        <ItemCount guardarCantidadSeleccionada={guardarCantidadSeleccionada} stock={stock} initial={1} productosData={data} />
 
                     </div>
                 </div>

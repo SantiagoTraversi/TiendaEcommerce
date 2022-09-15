@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import listaproductos from '../Utils/listaproductos'
 import ItemDetail from './ItemDetail'
+import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
     //productos llamados en la promise
     const [productos, guardarProductos] = useState([])
+    //producto encontrado en el some
+    const [producto, guardarProducto] = useState([])
+
+    const { id } = useParams()
 
 
 
     useEffect(() => {
-
+        filtrarProducto()
         obtenerProductos()
     }, [productos])
 
@@ -30,23 +35,17 @@ const ItemDetailContainer = () => {
         }
     }
 
+    const filtrarProducto = () => {
+        productos.some((item) => {
+            if(item.id == id){
+                guardarProducto(item)
+            }
+        })
+    }
+
     return (
-        <div className="container">
-            <div className='row m-2'>
-                {
-                    productos.map(item => {
-                        return (
-                            <ItemDetail
-                                key={item.id}
-                                data={item}
-            
-                            />
-                        )
-
-
-                    })
-                }
-            </div>
+        <div className="container mt-4 min-vh-100">
+            <ItemDetail data={producto} />
         </div>
     )
 }

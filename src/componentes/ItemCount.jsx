@@ -4,8 +4,10 @@ const ItemCount = ({ stock, initial, submitComprar }) => {
 
     //recibe initial como 1 el cual es pasado como parametro inicial en el usestate.
 
+    console.log(initial)
 
     const [contador, modificarContador] = useState(initial)
+
 
     const disminuirProducto = () => {
         if (contador >= 1) {
