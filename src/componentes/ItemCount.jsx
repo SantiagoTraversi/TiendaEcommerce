@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({ stock, initial, submitComprar }) => {
+const ItemCount = ({ stock, initial, submitComprar, guardarCantidadSeleccionada }) => {
 
     //recibe initial como 1 el cual es pasado como parametro inicial en el usestate.
 
@@ -20,6 +20,11 @@ const ItemCount = ({ stock, initial, submitComprar }) => {
         }
     }
 
+    const agregar = () => {
+        guardarCantidadSeleccionada(contador)
+    }
+
+
     return (
         <div className='mt-auto'>
             <div className='col-auto'>
@@ -31,7 +36,7 @@ const ItemCount = ({ stock, initial, submitComprar }) => {
 
             </div>
             <div className="">
-                <a className="btn btn-primary w-100" onClick={() => submitComprar(contador)}>Añadir al carrito</a>
+                <a className="btn btn-primary w-100" onClick={() => agregar(contador)}>Añadir al carrito</a>
             </div>
 
         </div>
