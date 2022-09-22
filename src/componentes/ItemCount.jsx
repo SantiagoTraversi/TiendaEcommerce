@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../context/CartContext'
 
-const ItemCount = ({ stock, initial, submitComprar, guardarCantidadSeleccionada }) => {
+const ItemCount = ({ stock, guardarCantidadSeleccionada, productosData }) => {
+    const { agregarAlCarro } = useContext(CartContext)
 
-    //recibe initial como 1 el cual es pasado como parametro inicial en el usestate.
-
-    console.log(initial)
-
-    const [contador, modificarContador] = useState(initial)
+    const [contador, modificarContador] = useState(1)
 
 
     const disminuirProducto = () => {
@@ -21,8 +19,10 @@ const ItemCount = ({ stock, initial, submitComprar, guardarCantidadSeleccionada 
     }
 
     const agregar = () => {
+        agregarAlCarro(productosData, contador)
         guardarCantidadSeleccionada(contador)
     }
+
 
 
     return (

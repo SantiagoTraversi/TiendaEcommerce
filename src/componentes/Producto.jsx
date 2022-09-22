@@ -1,15 +1,14 @@
-import React from 'react'
-import ItemCount from './ItemCount'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 
 const Producto = ({ data }) => {
 
     const { titulo, descripcion, imagen, stock, precio, id } = data
 
 
-    const submitComprar = (contador) => {
-        alert("felicidades por su compra, agregaste: " + contador + " producto(s)");
-    }
+    // const submitComprar = (contador) => {
+    //     alert("felicidades por su compra, agregaste: " + contador + " producto(s)");
+    // }
 
     return (
         <div className="col-sm-3">
