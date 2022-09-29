@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react'
 import Producto from './Producto'
 import listaproductos from '../Utils/listaproductos'
 import { useParams } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import bd from '../Utils/firefabeConfig'
 
 const ListadoProductos = () => {
 
     const [productos, guardarProductos] = useState([])
+    const [productosBD, setProductosBD] = useState([])
 
     useEffect(() => {
+        getProductos()
         const obtenerProductos = async () => {
             try {
                 const respuesta = await productosPromise
@@ -17,24 +21,41 @@ const ListadoProductos = () => {
             }
         }
         obtenerProductos()
-    }, [productos])
+    }, [productosBD])
+    //parametro de categoria
+    const { categoria } = useParams()
+    //filtra busqueda por categoria
+    const filterCategory = productosBD.filter((item) => item.categoria === categoria)
 
-    const {categoria} = useParams()
-
-    const filterCategory = listaproductos.filter((item) => item.categoria === categoria)
 
 
     const productosPromise = new Promise((resolve) => {
         setTimeout(() => {
             if (categoria) {
                 resolve(filterCategory)
-            }else {
-                resolve(listaproductos);
+
+            } else {
+                resolve(productosBD);
             }
-            
-        },2000);
+
+        }, 1000);
     })
 
+
+    //obtener productos de firestore
+    const getProductos = async () => {
+        // debugger
+        const coleccionProductos = collection(bd, 'Productos')
+        getDocs(coleccionProductos).then(response => {
+            const product = response.docs.map(doc => (
+                doc.data()
+            ))
+            setProductosBD(product)
+        })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
         <div className="container min-vh-100">
