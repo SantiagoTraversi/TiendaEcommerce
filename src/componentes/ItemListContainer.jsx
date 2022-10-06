@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Producto from './Producto'
-import listaproductos from '../Utils/listaproductos'
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
-import bd from '../Utils/firefabeConfig'
 
 const ListadoProductos = () => {
 
@@ -14,8 +12,9 @@ const ListadoProductos = () => {
 
     useEffect(() => {
         const querydb = getFirestore();
-        const queryCollection = collection(querydb, 'productos')
+        const queryCollection = collection(querydb, 'Productos')
 
+        debugger
         if (categoria) {
             const queryFilter = query(queryCollection, where('categoria', '==', categoria))
 
@@ -31,7 +30,6 @@ const ListadoProductos = () => {
 
 
     }, [categoria])
-    const submitComprar = () => { console.log("añadido al carrito") }
 
 
     return (
