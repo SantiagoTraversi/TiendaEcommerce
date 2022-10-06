@@ -3,14 +3,36 @@ import { CartContext } from '../context/CartContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore";
+import bd from '../Utils/firebaseConfig'
 
 const Cart = () => {
-    const [total, setTotal] = useState(1)
-
     const { cartProductos, limpiarCarro, eliminarProductoCarrito } = useContext(CartContext)
+    const [total, setTotal] = useState(1)
+    const [formulario, setFormulario] = useState({
+        nombre: '',
+        email: '',
+        telefono: ''
+    })
+    const [orden, setOrden] = useState({})
 
     useEffect(() => {
         sumarTotal(cartProductos)
+        if (cartProductos.length > 0) {
+            setOrden({
+                items: cartProductos.map((product) => {
+                    return {
+                        id: product.id,
+                        titulo: product.titulo,
+                        cantidad: product.contador,
+                        precio: product.precio
+                    }
+                }),
+                comprador: {},
+                fecha: new Date().toLocaleString(),
+                total: total
+            })
+        }
     }, [total, cartProductos])
 
 
@@ -23,7 +45,21 @@ const Cart = () => {
         setTotal(sum);
     }
 
-    const submitComprar = () => { alert("Felicidades por su compra") }
+
+    const guardarForm = (e) => {
+        setFormulario({ ...formulario, [e.target.name]: e.target.value })
+    }
+
+    const submitDatos = (e) => {
+        //e.prevent es para que no se mande 2 veces cuando haga submit
+        e.preventDefault()
+        mandarDatos({ ...orden, comprador: formulario })
+    }
+
+    const mandarDatos = async (nuevaOrden) => {
+        const coleccionOrden = collection(bd, 'ordenes')
+        const ordenDoc = await addDoc(coleccionOrden, nuevaOrden)
+    }
 
     return (
         <div className="container mt-2 min-vh-100">
@@ -79,7 +115,7 @@ const Cart = () => {
                             <div className="card-footer text-end">
                                 <p className='text-light m-3'>Total: ${total}</p>
                                 <button className='m-3 btn btn-danger' onClick={limpiarCarro}>Vaciar carrito</button>
-                                <button className='m-3 btn btn-success' onClick={submitComprar}>Comprar</button>
+                                <button className='m-3 btn btn-success' data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar</button>
                             </div>
 
 
