@@ -1,6 +1,14 @@
 # Tienda de dulces
 Tienda de dulces es una página para ventas de chocolates artesanales.
+
+ ## Imagenes del Proyecto
  
+![image](https://user-images.githubusercontent.com/103384813/203674486-5e6086a6-2f62-4afb-a664-b9beb6519762.png)
+![image](https://user-images.githubusercontent.com/103384813/203674972-ed394491-7e91-49b5-8e31-6d2f98bee432.png)
+![image](https://user-images.githubusercontent.com/103384813/203675048-52b78d89-b5d7-40a5-9634-b9d64313ecf4.png)
+![image](https://user-images.githubusercontent.com/103384813/203674558-34dcbaa9-91ec-45f2-bfec-29d2b4320701.png)
+![image](https://user-images.githubusercontent.com/103384813/203674876-e9ca0d7f-6424-4c8a-b31c-977226d4d9dd.png)
+![image](https://user-images.githubusercontent.com/103384813/203674922-43ca3422-7ea6-436d-baf1-842759747838.png)
 
 ## Available Scripts
 
