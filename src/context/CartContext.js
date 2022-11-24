@@ -5,6 +5,11 @@ export const CartContext = createContext()
 const CartProvider = ({ children }) => {
     const [cartProductos, setCartProductos] = useState([])
     
+    let totalItems = 0;
+    for (const item of  cartProductos) {
+        totalItems += item.contador;
+    }
+    console.log("Total Items: " + totalItems);
 
     const agregarAlCarro = (producto, contador) => {
 
@@ -16,8 +21,13 @@ const CartProvider = ({ children }) => {
             setCartProductos([...cartProductos, producto])
         }else{
             //Si el producto ESTA en el carrito
-            productoEnCarrito.contador = productoEnCarrito.contador + contador;
-            setCartProductos([productoEnCarrito])
+            setCartProductos(
+                cartProductos.map(item =>
+                  item.id === producto.id
+                    ? { ...productoEnCarrito, contador: productoEnCarrito.contador + 1 }
+                    : item
+                )
+              );
         }
     }
 
@@ -36,7 +46,8 @@ const CartProvider = ({ children }) => {
         limpiarCarro,
         eliminarProductoCarrito,
         setCartProductos,
-        cartProductos
+        cartProductos,
+        totalItems
 
     }
     return (

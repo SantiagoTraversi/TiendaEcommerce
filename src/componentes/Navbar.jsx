@@ -6,6 +6,8 @@ import { CartContext } from '../context/CartContext'
 const Navbar = () => {
     const { cartProductos } = useContext(CartContext)
 
+
+
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container-fluid">

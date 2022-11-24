@@ -14,7 +14,6 @@ const ListadoProductos = () => {
         const querydb = getFirestore();
         const queryCollection = collection(querydb, 'Productos')
 
-        debugger
         if (categoria) {
             const queryFilter = query(queryCollection, where('categoria', '==', categoria))
 
