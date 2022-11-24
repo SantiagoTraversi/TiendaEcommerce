@@ -1,7 +1,6 @@
 # Tienda de dulces
-Tienda de dulces será una páagina para ventas de chocolates artesanales
+Tienda de dulces es una página para ventas de chocolates artesanales.
  
-Próximamente, se agregaran productos
 
 ## Available Scripts
 
